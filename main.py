@@ -1,12 +1,11 @@
 import streamlit as st
 import json
-import time
 
 from google import genai
 
 client = genai.Client()
 
-MODEL_NAME = "gemini-2.5-flash-lite-preview-09-2025"#"meta-llama/Llama-3.1-8B-Instruct"
+MODEL_NAME = "gemini-2.5-flash"#"meta-llama/Llama-3.1-8B-Instruct"
 MAX_PAPERS = 5
 
 
