@@ -52,12 +52,15 @@ def ai_overview(papers):
     prompt = f"""
 You are assisting with a literature review.
 
-Compare the following papers:
-1. Identify common themes across the papers.
-2. Highlight key differences in methods or approaches.
-3. Note differences in assumptions or scope.
+Given the following paper(s):
 
-Do not rank the papers or recommend which to read.
+- If multiple papers are provided:
+  1. Identify common themes across the papers.
+  2. Highlight key differences in methods, approaches, or focus.
+  3. Note any differences in assumptions, scope, or domain.
+
+- If only a single paper is provided:
+  - Summarize the paper, highlighting its main contributions, methods, and scope.
 
 {text}
 """
@@ -131,7 +134,7 @@ if st.button("Generate AI Overview for Relevant Papers"):
     selected_papers = [p for p in papers if p["id"] in selected_ids]
 
     if selected_papers:
-        with st.spinner("Analyzing relevant papers with ..."):
+        with st.spinner("Analyzing relevant papers using AI..."):
             overview = ai_overview(selected_papers)
             st.session_state.ai_overview = overview
             st.session_state.show_ai = True 
